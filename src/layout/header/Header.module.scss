@@ -1,0 +1,52 @@
+.header {
+    background-color: #333; /* Цвет фона хедера */
+    color: #fff; /* Цвет текста в хедере */
+    padding: 20px; /* Внутренние отступы хедера */
+    text-align: center;
+
+    &-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    &-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        &__button {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+
+            &:hover {
+                color: rgba(2, 156, 252, 0.849);
+                font-weight: 500;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+
+        &-container {
+            flex-direction: column;
+
+            ul {
+                margin-top: 10px;
+            }
+        }
+    }
+}
