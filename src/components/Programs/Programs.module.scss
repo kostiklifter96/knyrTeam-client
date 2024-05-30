@@ -1,76 +1,169 @@
 $index: calc(1vw + 1vh);
+$transition: cubic-bezier(0.1, 0.7, 0, 1);
 
 .programs {
+    margin-top: 40px;
     height: 700px;
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
 
+    &__text {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            width: 75%;
+            color: #ffffff;
+            text-align: center;
+            font-size: 32px;
+            // margin: 50px 0 70px 0;
+            font-weight: 100;
+        }
+    }
+
     &__items {
+        margin-top: 75px;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.4em;
-        perspective: calc(#{$index} * 35);
+        perspective: calc($index * 35);
 
         &-item {
-            width: calc(#{$index} * 3);
-            height: calc(#{$index} * 12);
+            width: calc($index * 3);
+            height: calc($index * 12);
             background-color: #222;
-            object-fit: cover;
+            background-size: cover;
+            background-position: center;
             cursor: pointer;
             filter: grayscale(100%) brightness(0.5);
+            position: relative;
+            transition: transform 1.25s $transition, filter 3s $transition,
+                width 1.5s $transition;
+            will-change: transform, filter;
+
+            // &:active,
+            // &:focus {
+            //     width: 25vw;
+            //     filter: inherit;
+            //     z-index: 100;
+            //     transform: translateZ(calc($index * 10));
+            //     margin: 0 0.45vw;
+            // }
+
+            &:hover {
+                width: 15svw;
+                filter: inherit;
+                z-index: 100;
+                transform: translateZ(calc($index * 10));
+                margin: 0 0.45vw;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 100%;
+                right: calc(#{$index} * -1);
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: 30px;
+                height: 100%;
+                left: calc(#{$index} * -1);
+            }
 
             &:hover {
                 filter: inherit;
-                transform: translateZ(calc(#{$index} * 11));
+                transform: translateZ(calc(#{$index} * 10));
 
                 /* Right */
                 + * {
                     filter: inherit;
-                    transform: translateZ(calc(#{$index} * 8.5));
+                    transform: translateZ(calc(#{$index} * 8.5)) rotateY(35deg);
                     z-index: -1;
 
                     + * {
                         filter: inherit;
-                        transform: translateZ(calc(#{$index} * 5.6));
+                        transform: translateZ(calc(#{$index} * 5.6))
+                            rotateY(40deg);
                         z-index: -2;
 
                         + * {
                             filter: inherit;
-                            transform: translateZ(calc(#{$index} * 2.4));
+                            transform: translateZ(calc(#{$index} * 2.4))
+                                rotateY(30deg);
                             z-index: -3;
 
                             + * {
                                 filter: inherit;
-                                transform: translateZ(calc(#{$index} * 0.6));
+                                transform: translateZ(calc(#{$index} * 0.6))
+                                    rotateY(14deg);
                                 z-index: -4;
                             }
                         }
                     }
                 }
             }
-            /* Left */
 
+            /* Left */
             &:has(+ :hover) {
                 filter: inherit;
-                transform: translateZ(calc(#{$index} * 8.5));
-
-                &:has(+ * + :hover) {
-                    filter: inherit;
-                    transform: translateZ(calc(#{$index} * 5.6));
-
-                    &:has(+ * + * + :hover) {
-                        filter: inherit;
-                        transform: translateZ(calc(#{$index} * 2.4));
-
-                        &:has(+ * + * + * + :hover) {
-                            filter: inherit;
-                            transform: translateZ(calc(#{$index} * 0.6));
-                        }
-                    }
-                }
+                transform: translateZ(calc(#{$index} * 8.5)) rotateY(-35deg);
             }
+            &:has(+ * + :hover) {
+                filter: inherit;
+                transform: translateZ(calc(#{$index} * 5.6)) rotateY(-40deg);
+            }
+            &:has(+ * + * + :hover) {
+                filter: inherit;
+                transform: translateZ(calc(#{$index} * 2.4)) rotateY(-30deg);
+            }
+            &:has(+ * + * + * + :hover) {
+                filter: inherit;
+                transform: translateZ(calc(#{$index} * 0.6)) rotateY(-14deg);
+            }
+        }
+    }
+
+    &__description {
+        overflow: hidden;
+        padding: 15px 10px;
+
+        &-item {
+            padding-bottom: 6px;
+            width: 14vw;
+            font-size: 13px;
+            letter-spacing: -0px;
+
+            &:first-of-type {
+                padding-bottom: 16px;
+
+                font-size: 20px;
+                // font-weight: bold;
+                letter-spacing: normal;
+            }
+        }
+    }
+
+    &__btn {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100px;
+
+        button {
+            background-color: rgb(235, 235, 6);
+            border: none;
+            border-radius: 5px;
+            height: 30px;
         }
     }
 }

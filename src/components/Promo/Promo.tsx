@@ -17,7 +17,7 @@ export const Promo = ({}: PromoProps) => {
             setCurrentImageIndex((prevIndex) =>
                 prevIndex === imagesList.length - 1 ? 0 : prevIndex + 1,
             );
-        }, 8000);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
