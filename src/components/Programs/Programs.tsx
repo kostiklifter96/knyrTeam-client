@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../container/Container";
 import { photoArray } from "./photoArray";
 
@@ -8,6 +8,23 @@ export interface ProgramsProps {}
 
 export const Programs = ({}: ProgramsProps) => {
     const [isHovered, setIsHovered] = useState<null | number>(null);
+    const [windowWidth, setWindowWidth] = useState<boolean>(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth <= 768);
+            if (window.innerWidth <= 768) {
+                // setIsHovered(null);
+            }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div className={styles.programs}>
             <Container>
@@ -19,13 +36,13 @@ export const Programs = ({}: ProgramsProps) => {
                     {photoArray.map((ph, i) => (
                         <div
                             key={ph.id}
-                            className={`${styles["programs__items-item"]}`}
+                            className={`${styles["programs__items-item"]} `}
                             style={{ backgroundImage: `url(${ph.photo})` }}
                             tabIndex={1}
                             onMouseEnter={() => setIsHovered(i)}
                             onMouseLeave={() => setIsHovered(null)}
                         >
-                            {isHovered === i && (
+                            {(windowWidth || isHovered === i) && (
                                 <div className={styles.programs__description}>
                                     <div
                                         className={
@@ -51,7 +68,7 @@ export const Programs = ({}: ProgramsProps) => {
 
                                     {isHovered === i && (
                                         <div className={styles.programs__btn}>
-                                            <button>Узнать подробнее</button>
+                                            <button>Подробнее</button>
                                         </div>
                                     )}
                                 </div>
