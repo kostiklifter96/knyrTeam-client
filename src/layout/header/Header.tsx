@@ -8,13 +8,11 @@ export const Header = () => {
                 <div className={styles["header-container"]}>
                     <div className={styles["header-logo"]}>КнырTeam</div>
                     <ul className={styles["header-list"]}>
-                        <li className={styles["header-list__button"]}>
-                            Обо мне
-                        </li>
-                        <li className={styles["header-list__button"]}>
+                        <li className={styles["header-list__info"]}>Обо мне</li>
+                        <li className={styles["header-list__info"]}>
                             Программы
                         </li>
-                        <li className={styles["header-list__button"]}>
+                        <li className={styles["header-list__info"]}>
                             Контакты
                         </li>
                     </ul>

@@ -27,10 +27,12 @@ export const Promo = ({}: PromoProps) => {
             <div className={styles.promo}>
                 <div>
                     <div className={styles["promo-wrapper"]}></div>
-                    <img
-                        src={imagesList[currentImageIndex]}
-                        alt={imagesList[currentImageIndex]}
-                    />
+                    <div
+                        className={styles["promo-images"]}
+                        style={{
+                            backgroundImage: `url(${imagesList[currentImageIndex]})`,
+                        }}
+                    ></div>
                 </div>
             </div>
         </>

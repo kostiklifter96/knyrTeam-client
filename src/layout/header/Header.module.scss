@@ -1,7 +1,6 @@
 .header {
     position: absolute;
-    // top: 0;
-    // left: 0;
+    font-family: "Rubik Mono One", monospace;
     z-index: 9999;
 
     width: 100%;
@@ -19,7 +18,6 @@
 
     &-logo {
         font-size: 2.2rem;
-        // font-weight: bold;
     }
 
     &-list {
@@ -27,13 +25,13 @@
         padding: 0;
         margin: 0;
 
-        &__button {
+        &__info {
             display: inline-block;
             margin-right: 20px;
             cursor: pointer;
             font-size: 1.5rem;
             // font-weight: bold;
-            word-spacing: -10px;
+            word-spacing: -15px;
 
             &:hover {
                 color: rgba(2, 156, 252, 0.849);
@@ -45,12 +43,30 @@
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
         .header {
+            &-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 30px;
+                height: 30px;
+            }
+
             &-logo {
                 font-size: 2rem;
             }
+            &-list {
+                &__info {
+                    font-size: 1.2rem;
+                    word-spacing: -10px;
+                }
+            }
+        }
+    }
 
+    @media (max-width: 768px) {
+        .header {
             &-container {
                 flex-direction: column;
 
@@ -59,9 +75,19 @@
                 }
             }
 
+            &-logo {
+                font-size: 3rem;
+            }
+
             &-list {
-                &__button {
-                    // font-size: 0.6rem;
+                display: grid;
+                grid-template-columns: repeat(3, 170px);
+                justify-content: center;
+                align-items: center;
+
+                &__info {
+                    font-size: 1rem;
+                    margin-right: 0px;
                 }
             }
         }
@@ -70,20 +96,21 @@
     @media (max-width: 576px) {
         .header {
             &-logo {
-                font-size: 1.4rem;
+                font-size: 2.7rem;
             }
 
             &-container {
                 flex-direction: column;
-
-                ul {
-                    margin-top: 5px;
-                }
+                gap: 5px;
             }
 
             &-list {
-                &__button {
-                    font-size: 0.8rem;
+                grid-template-columns: repeat(3, 106px);
+                gap: 1px;
+
+                &__info {
+                    font-size: 0.6rem;
+                    word-spacing: -5px;
                 }
             }
         }
