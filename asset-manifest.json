@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/knyrTeam-client/static/css/main.d650f832.css",
+    "main.js": "/knyrTeam-client/static/js/main.49fa63ba.js",
+    "static/media/promo-squat.jpg": "/knyrTeam-client/static/media/promo-squat.1b8ac299e4a656d6dbed.jpg",
+    "static/media/promo-deadlift.jpg": "/knyrTeam-client/static/media/promo-deadlift.ac066035fff31613338d.jpg",
+    "static/media/promo-bench.jpg": "/knyrTeam-client/static/media/promo-bench.2b1bbe218a49387028cb.jpg",
+    "static/media/3.jpg": "/knyrTeam-client/static/media/3.5c9eaf2a9beeb57913ec.jpg",
+    "static/media/10.jpg": "/knyrTeam-client/static/media/10.9706ac9a19947181a609.jpg",
+    "static/media/12.jpg": "/knyrTeam-client/static/media/12.1c5f0ef17e46cfa7878a.jpg",
+    "static/media/2.jpg": "/knyrTeam-client/static/media/2.660a6f8e501759fd9f9e.jpg",
+    "static/media/4.jpg": "/knyrTeam-client/static/media/4.a57aac7cca10aae820c4.jpg",
+    "static/media/1.jpg": "/knyrTeam-client/static/media/1.bdd99aa526323a8b80c3.jpg",
+    "static/media/13.jpg": "/knyrTeam-client/static/media/13.d3a176e439c4073ee532.jpg",
+    "index.html": "/knyrTeam-client/index.html",
+    "main.d650f832.css.map": "/knyrTeam-client/static/css/main.d650f832.css.map",
+    "main.49fa63ba.js.map": "/knyrTeam-client/static/js/main.49fa63ba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d650f832.css",
+    "static/js/main.49fa63ba.js"
+  ]
+}
