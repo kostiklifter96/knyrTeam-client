@@ -18,12 +18,34 @@
 
     &-logo {
         font-size: 2.2rem;
+        cursor: pointer;
+
+        &:hover {
+            text-shadow: 0 0 20px rgb(9, 134, 176);
+            // text-shadow: 0 0 20px rgb(110, 24, 248);
+        }
     }
 
     &-list {
         list-style-type: none;
         padding: 0;
         margin: 0;
+
+        a {
+            text-decoration: none;
+            color: white;
+
+            &:visited {
+                color: white;
+            }
+            &:focus {
+                color: white;
+            }
+
+            &:hover {
+                color: rgba(2, 156, 252, 0.849);
+            }
+        }
 
         &__info {
             display: inline-block;
@@ -85,9 +107,17 @@
                 justify-content: center;
                 align-items: center;
 
+                a {
+                    &:hover {
+                        color: white;
+                    }
+                }
                 &__info {
                     font-size: 1rem;
                     margin-right: 0px;
+                    &:hover {
+                        color: white;
+                    }
                 }
             }
         }
@@ -109,7 +139,8 @@
                 gap: 1px;
 
                 &__info {
-                    font-size: 0.6rem;
+                    // font-size: 0.8rem;
+                    font-size: 13px;
                     word-spacing: -5px;
                 }
             }

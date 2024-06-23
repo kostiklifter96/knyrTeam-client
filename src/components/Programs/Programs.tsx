@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { photoArray } from "../../data/photoArray";
 import { Container } from "../container/Container";
-import { photoArray } from "./photoArray";
 
 import styles from "./Programs.module.scss";
 
@@ -9,6 +10,8 @@ export interface ProgramsProps {}
 export const Programs = ({}: ProgramsProps) => {
     const [isHovered, setIsHovered] = useState<null | number>(null);
     const [windowWidth, setWindowWidth] = useState<boolean>(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -32,7 +35,7 @@ export const Programs = ({}: ProgramsProps) => {
                     <h1> Программы тренировок для любого уровня и пола</h1>
                 </div>
 
-                <div className={styles.programs__items}>
+                <div className={styles.programs__items} id='programs'>
                     {photoArray.map((ph, i) => (
                         <div
                             key={ph.id}
@@ -68,7 +71,15 @@ export const Programs = ({}: ProgramsProps) => {
 
                                     {isHovered === i && (
                                         <div className={styles.programs__btn}>
-                                            <button>Подробнее</button>
+                                            <button
+                                                onClick={() =>
+                                                    navigate(
+                                                        `/programs/${ph.id}`,
+                                                    )
+                                                }
+                                            >
+                                                Подробнее
+                                            </button>
                                         </div>
                                     )}
                                 </div>
